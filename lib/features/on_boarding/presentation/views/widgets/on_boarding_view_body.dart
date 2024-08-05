@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:fruit/core/utils/app_color.dart';
 
 import 'on_boarding_page_view.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        Expanded(
+        const Expanded(
           child: OnBoardingPageView(),
+        ),
+        DotsIndicator(
+          dotsCount: 2,
+          decorator: DotsDecorator(
+            activeColor: AppColors.primaryColor,
+            color: AppColors.primaryColor.withOpacity(0.5),
+          ),
         ),
       ],
     );
