@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit/core/utils/app_images.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem(
@@ -14,6 +16,35 @@ class PageViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          height: MediaQuery.of(context).size.height * 0.5,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: SvgPicture.asset(
+                  Assets.assetsImagesPageViewItem1BackgroundImage,
+                  fit: BoxFit.fill,
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 0,
+                right: 0,
+                child: SvgPicture.asset(
+                  Assets.assetsImagesPageViewItem1Image,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text('تخط'),
+              ),
+            ],
+          ),
+        )
+      ],
+    );
   }
 }
