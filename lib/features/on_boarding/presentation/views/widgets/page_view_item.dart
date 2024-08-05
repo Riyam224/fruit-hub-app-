@@ -37,7 +37,7 @@ class PageViewItem extends StatelessWidget {
                   Assets.assetsImagesPageViewItem1Image,
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Text('تخط'),
               ),
@@ -49,12 +49,15 @@ class PageViewItem extends StatelessWidget {
         ),
         // todo
         title,
-        SizedBox(
+        const SizedBox(
           height: 24,
         ),
-        Text(
-          subtitle,
-          textAlign: TextAlign.center,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            subtitle,
+            textAlign: TextAlign.center,
+          ),
         ),
       ],
     );
