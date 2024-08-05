@@ -43,7 +43,19 @@ class PageViewItem extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
+        const SizedBox(
+          height: 64,
+        ),
+        // todo
+        title,
+        SizedBox(
+          height: 24,
+        ),
+        Text(
+          subtitle,
+          textAlign: TextAlign.center,
+        ),
       ],
     );
   }
