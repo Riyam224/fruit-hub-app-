@@ -8,8 +8,35 @@ import 'package:fruit/core/widgets/custom_buttom.dart';
 import 'on_boarding_page_view.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 
-class OnBoardingViewBody extends StatelessWidget {
+class OnBoardingViewBody extends StatefulWidget {
   const OnBoardingViewBody({super.key});
+
+  @override
+  State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();
+}
+
+class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
+  late PageController pageController;
+
+  var currentPage = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    pageController = PageController();
+    pageController.addListener(() {
+      
+      currentPage = pageController.page!.round();
+    })
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
