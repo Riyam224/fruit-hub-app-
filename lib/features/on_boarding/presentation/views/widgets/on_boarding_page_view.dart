@@ -1,17 +1,24 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, unnecessary_import
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/features/on_boarding/presentation/views/widgets/page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
+  const OnBoardingPageView({super.key, required this.pageController});
+
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     return PageView(
-      children: const [
+      controller: pageController,
+      children: [
         PageViewItem(
+          isVisible:
+              (pageController.hasClients ? PageController.page!.round() : 0) ==
+                  0,
           image: Assets.assetsImagesPageViewItem1Image,
           backgroundImage: Assets.assetsImagesPageViewItem1BackgroundImage,
           subtitle:
@@ -28,6 +35,9 @@ class OnBoardingPageView extends StatelessWidget {
         // todo
 
         PageViewItem(
+          isVisible:
+              (pageController.hasClients ? PageController.page!.round() : 0) !=
+                  0,
           image: Assets.assetsImagesPageViewItem2Image,
           backgroundImage: Assets.assetsImagesPageViewItem2BackgroundImage,
           subtitle:
