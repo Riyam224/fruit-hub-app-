@@ -1,8 +1,10 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, unnecessary_import
+// ignore_for_file: prefer_const_literals_to_create_immutables, unnecessary_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fruit/core/utils/app_color.dart';
 import 'package:fruit/core/utils/app_images.dart';
+import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/features/on_boarding/presentation/views/widgets/page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
@@ -26,9 +28,20 @@ class OnBoardingPageView extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('مرحبًا بك في'),
-              Text('Fruit'),
-              Text('HUB'),
+              Text(
+                'مرحبًا بك في',
+                style: TextStyles.bold23,
+              ),
+              Text(
+                ' HUB',
+                style:
+                    TextStyles.bold23.copyWith(color: AppColors.secondaryColor),
+              ),
+              Text(
+                'Fruit',
+                style:
+                    TextStyles.bold23.copyWith(color: AppColors.primaryColor),
+              ),
             ],
           ),
         ),
@@ -42,7 +55,7 @@ class OnBoardingPageView extends StatelessWidget {
           backgroundImage: Assets.assetsImagesPageViewItem2BackgroundImage,
           subtitle:
               'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
-          title: Text(
+          title: const Text(
             'ابحث وتسوق',
             textAlign: TextAlign.center,
             style: TextStyle(
