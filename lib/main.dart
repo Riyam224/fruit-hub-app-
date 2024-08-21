@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fruit/core/helper_functions/on_generate_route.dart';
+import 'package:fruit/core/services/shared_preferences_singleton.dart';
 import 'package:fruit/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit/generated/l10n.dart';
 
-void main() {
+void main() async {
+  await SharedPreferencesSingleton.init();
   runApp(const FruitHub());
 }
 
