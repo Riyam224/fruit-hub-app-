@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit/constants.dart';
 import 'package:fruit/core/utils/app_color.dart';
 import 'package:fruit/core/widgets/custom_buttom.dart';
+import 'package:fruit/features/auth/presentation/views/login_view.dart';
 
 import 'on_boarding_page_view.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -23,14 +24,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   void initState() {
     pageController = PageController();
     pageController.addListener(() {
-      
       currentPage = pageController.page!.round();
-      setState(() {
-        
-      });
-    })
+      setState(() {});
+    });
     super.initState();
   }
+
   @override
   void dispose() {
     pageController.dispose();
@@ -41,7 +40,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-         Expanded(
+        Expanded(
           child: OnBoardingPageView(
             pageController: pageController,
           ),
@@ -50,13 +49,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           dotsCount: 2,
           decorator: DotsDecorator(
             activeColor: AppColors.primaryColor,
-            color:
-            currentPage == 1 ? AppColors.primaryColor :
-            
-             AppColors.primaryColor.withOpacity(0.5),
+            color: currentPage == 1
+                ? AppColors.primaryColor
+                : AppColors.primaryColor.withOpacity(0.5),
           ),
         ),
-      const   SizedBox(
+        const SizedBox(
           height: 29,
         ),
         Visibility(
@@ -68,7 +66,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             padding: const EdgeInsets.symmetric(
               horizontal: kHorizontalPadding,
             ),
-            child: CustomButtom(onPressed: () {}, text: 'start now'),
+            child: CustomButtom(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, LoginView.routeName);
+                },
+                text: 'start now'),
           ),
         ),
         const SizedBox(
