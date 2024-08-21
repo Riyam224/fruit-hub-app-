@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit/generated/l10n.dart';
 
 void main() async {
-  await SharedPreferencesSingleton.init();
+  await Prefs.init();
   runApp(const FruitHub());
 }
 

@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import "package:flutter_svg/flutter_svg.dart";
+import 'package:fruit/core/services/shared_preferences_singleton.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:fruit/constants.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -40,8 +42,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   // todo
   void excuteNavigation() {
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const OnBoardingView()));
+      bool IsOnBoardingViewSeen = Prefs.getBool(kIsOnBoardingViewSeen);
+      if (IsOnBoardingViewSeen) {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const OnBoardingView()));
+      }
     });
   }
 }

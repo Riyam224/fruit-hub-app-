@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fruit/constants.dart';
+import 'package:fruit/core/services/shared_preferences_singleton.dart';
 import 'package:fruit/core/utils/app_color.dart';
 import 'package:fruit/core/widgets/custom_buttom.dart';
 import 'package:fruit/features/auth/presentation/views/login_view.dart';
@@ -68,6 +69,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
             child: CustomButtom(
                 onPressed: () {
+                  // todo
+                  Prefs.setBool(kIsOnBoardingViewSeen, true);
                   Navigator.pushReplacementNamed(context, LoginView.routeName);
                 },
                 text: 'start now'),

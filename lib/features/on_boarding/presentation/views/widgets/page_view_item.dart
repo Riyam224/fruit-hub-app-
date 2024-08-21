@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit/constants.dart';
+
+import 'package:fruit/core/services/shared_preferences_singleton.dart';
 import 'package:fruit/core/utils/app_images.dart';
 import 'package:fruit/core/utils/app_text_styles.dart';
 import 'package:fruit/features/auth/presentation/views/login_view.dart';
@@ -50,6 +53,10 @@ class PageViewItem extends StatelessWidget {
                     padding: EdgeInsets.all(16.0),
                     child: GestureDetector(
                       onTap: () {
+                        // todo
+
+                        Prefs.setBool(kIsOnBoardingViewSeen, true);
+
                         Navigator.pushReplacementNamed(
                             context, LoginView.routeName);
                       },
